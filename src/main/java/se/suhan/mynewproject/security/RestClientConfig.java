@@ -3,7 +3,7 @@ package se.suhan.mynewproject.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
-
+// commented out to avoid circular dependency
 @Configuration
 public class RestClientConfig {
 

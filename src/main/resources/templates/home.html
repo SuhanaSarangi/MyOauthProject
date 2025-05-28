@@ -10,6 +10,7 @@
 <div th:each="oneBook: ${books}">
     <h2 th:text="${oneBook.getId()}"></h2>
     <h2 th:text="${oneBook.getTitle()}"></h2>
+    <h2 th:text="${oneBook.getPubyear()}"></h2>
     <p th:text="${oneBook.getAuthor()}"></p>
 </div>
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import se.suhan.mynewproject.models.Book;
 import se.suhan.mynewproject.models.BookRepository;
 
 
@@ -23,6 +24,14 @@ public class HomeController extends BaseController {
 
         model.addAttribute("books", bookRepository.findAll()); // Lägger till en lista med böcker i modellen
         model.addAttribute("user", "Suhana"); // Lägger till en användare i modellen
+
+        Book book = bookRepository.findByTitle("1984");
+        if (book != null) {
+            System.out.println("Book found");
+            model.addAttribute("book", book);
+        } else {
+            System.out.println("No book found");
+        }
 
         return "home"; // Returnerar namnet på HTML-sidan som ska visas
     }

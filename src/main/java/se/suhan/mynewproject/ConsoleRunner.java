@@ -24,7 +24,7 @@ public class ConsoleRunner implements CommandLineRunner {
             bookService.addBook(new Book("Effective Java", "Joshua Bloch", 2008, "Programming"));
             bookService.addBook(new Book("A Brief History of Time", "Stephen Hawking", 1988, "Science"));
             bookService.addBook(new Book("The Joy of Cooking", "Irma S. Rombauer", 1931, "Cooking"));
-            bookService.addBook(new Book("The Art of War", "Sun Tzu", -500, "History"));
+            bookService.addBook(new Book("The History of the Decline and Fall of the Roman Empire", "Edward Gibbon", 1776, "History"));
             bookService.addBook(new Book("1984", "George Orwell", 1949, "Dystopian"));
             bookService.addBook(new Book("Brave New World", "Aldous Huxley", 1932, "Dystopian"));
             bookService.addBook(new Book("Pride and Prejudice", "Jane Austen", 1813, "Romance"));

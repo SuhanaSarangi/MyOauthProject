@@ -21,6 +21,9 @@ public class Book {
     @Column(name = "pubyear")
     private int pubyear;
 
+    @Column(name = "category")
+    private String category;
+
     public Long getId() {
         return id;
     }
@@ -51,5 +54,12 @@ public class Book {
 
     public void setPubyear(int pubyear) {
         this.pubyear = pubyear;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

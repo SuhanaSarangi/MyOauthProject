@@ -26,13 +26,45 @@ public class ConsoleRunner implements CommandLineRunner {
             book1.setTitle("The Great Gatsby");
             book1.setAuthor("F. Scott Fitzgerald");
             book1.setPubyear(1925);
+            book1.setCategory("Fiction");
             bookRepository.save(book1);
 
             Book book2 = new Book();
             book2.setTitle("To Kill a Mockingbird");
             book2.setAuthor("Harper Lee");
             book2.setPubyear(1960);
+            book2.setCategory("Fiction");
             bookRepository.save(book2);
+
+            Book book3 = new Book();
+            book1.setTitle("Effective Java");
+            book1.setAuthor("Joshua Bloch");
+            book1.setPubyear(2008);
+            book1.setCategory("Programming");
+            bookRepository.save(book3);
+
+            Book book4 = new Book();
+            book3.setTitle("A Brief History of Time");
+            book3.setAuthor("Stephen Hawking");
+            book3.setPubyear(1988);
+            book3.setCategory("Science");
+            bookRepository.save(book4);
+
+            Book book5 = new Book();
+            book4.setTitle("The Joy of Cooking");
+            book4.setAuthor("Irma S. Rombauer");
+            book4.setPubyear(1931);
+            book4.setCategory("Cooking");
+            bookRepository.save(book5);
+
+            Book book6 = new Book();
+            book5.setTitle("The Art of War");
+            book5.setAuthor("Sun Tzu");
+            book5.setPubyear(-500); // Approximate year
+            book5.setCategory("History");
+            bookRepository.save(book6);
+
+
         } else {
             System.out.println("Books found in the database.");
         }

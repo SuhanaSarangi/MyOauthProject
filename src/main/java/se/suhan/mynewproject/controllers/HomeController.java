@@ -20,10 +20,6 @@ public class HomeController extends BaseController {
     public String home(Model model) {
 
         System.out.println("Home page accessed");
-        // List<String> books = new ArrayList<>();
-        //books.add("Book 1");
-        //books.add("Book 2");
-        //books.add("Book 3");
 
         model.addAttribute("books", bookRepository.findAll()); // Lägger till en lista med böcker i modellen
         model.addAttribute("user", "Suhana"); // Lägger till en användare i modellen

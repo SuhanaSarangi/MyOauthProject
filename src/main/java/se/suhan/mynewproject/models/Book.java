@@ -31,6 +31,10 @@ public class Book {
         this.category = category;
     }
 
+    public Book() {
+        // Required by JPA
+    }
+
     public Long getId() {
         return id;
     }

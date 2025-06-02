@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Book Library</title>
@@ -35,9 +35,8 @@
     </style>
 </head>
 <body>
-<h1>Welcome to the Book Library</h1>
+<h1>Book Library</h1>
 <h2 th:text="${user}"></h2>
-
 <table>
     <thead>
     <tr>
@@ -49,23 +48,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr><td>1</td><td>F. Scott Fitzgerald</td><td>Fiction</td><td>1925</td><td>The Great Gatsby</td></tr>
-    <tr><td>2</td><td>Harper Lee</td><td>Fiction</td><td>1960</td><td>To Kill a Mockingbird</td></tr>
-    <tr><td>3</td><td>Joshua Bloch</td><td>Programming</td><td>2008</td><td>Effective Java</td></tr>
-    <tr><td>4</td><td>Stephen Hawking</td><td>Science</td><td>1988</td><td>A Brief History of Time</td></tr>
-    <tr><td>5</td><td>Irma S. Rombauer</td><td>Cooking</td><td>1931</td><td>The Joy of Cooking</td></tr>
-    <tr><td>6</td><td>Sun Tzu</td><td>History</td><td>-500</td><td>The Art of War</td></tr>
-    <tr><td>7</td><td>George Orwell</td><td>Dystopian</td><td>1949</td><td>1984</td></tr>
-    <tr><td>8</td><td>Aldous Huxley</td><td>Dystopian</td><td>1932</td><td>Brave New World</td></tr>
-    <tr><td>9</td><td>Jane Austen</td><td>Romance</td><td>1813</td><td>Pride and Prejudice</td></tr>
-    <tr><td>10</td><td>J.R.R. Tolkien</td><td>Fantasy</td><td>1937</td><td>The Hobbit</td></tr>
-    <tr><td>11</td><td>J.D. Salinger</td><td>Fiction</td><td>1951</td><td>The Catcher in the Rye</td></tr>
-    <tr><td>12</td><td>Yuval Noah Harari</td><td>History</td><td>2011</td><td>Sapiens: A Brief History of Humankind</td></tr>
-    <tr><td>13</td><td>Eric Ries</td><td>Business</td><td>2011</td><td>The Lean Startup</td></tr>
-    <tr><td>14</td><td>Daniel Kahneman</td><td>Psychology</td><td>2011</td><td>Thinking, Fast and Slow</td></tr>
-    <tr><td>15</td><td>Anne Frank</td><td>Biography</td><td>1947</td><td>The Diary of a Young Girl</td></tr>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.category}"></td>
+        <td th:text="${book.pubyear}"></td>
+        <td th:text="${book.title}"></td>
+    </tr>
     </tbody>
 </table>
 </body>
 </html>
-

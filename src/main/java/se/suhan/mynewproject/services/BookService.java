@@ -12,32 +12,31 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    /**
-     * Returns the total count of books.
-     */
+    // Add a book to the database
+    public void addBook(Book book) {
+        bookRepository.save(book);
+    }
+
+    // Count the number of books
     public long countBooks() {
         return bookRepository.count();
     }
 
-    /**
-     * Adds a new book to the repository.
-     */
-    public Book addBook(Book book) {
-        return bookRepository.save(book);
-    }
-
-    /**
-     * Returns all books.
-     */
+    // Get all books
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
-    /**
-     * Finds a book by its title (simple example).
-     */
-    public Book findByTitle(String title) {
-        return bookRepository.findByTitle(title);
+    // Check that all publication years are within 1000–3000
+    public boolean arePublicationYearsValid() {
+        List<Book> books = getAllBooks();
+        for (Book book : books) {
+            int pubYear = book.getPubyear();
+            if (pubYear < 1000 || pubYear > 3000) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

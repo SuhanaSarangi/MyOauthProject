@@ -12,27 +12,14 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    // Add a book to the database
-    public void addBook(Book book) {
-        bookRepository.save(book);
-    }
-
-    // Count the number of books
-    public long countBooks() {
-        return bookRepository.count();
-    }
-
-    // Get all books
-    public List<Book> getAllBooks() {
-        return bookRepository.findAll();
-    }
-
     // Check that all publication years are within 1000–3000
-    public boolean arePublicationYearsValid() {
-        List<Book> books = getAllBooks();
+    public boolean isPublicationYearValid() {
+        List<Book> books = bookRepository.findAll();
         for (Book book : books) {
             int pubYear = book.getPubyear();
+            System.out.println("Checking publication year: " + pubYear + " for book: " + book.getTitle());
             if (pubYear < 1000 || pubYear > 3000) {
+                System.out.println("Invalid publication year: " + pubYear + " for book: " + book.getTitle());
                 return false;
             }
         }

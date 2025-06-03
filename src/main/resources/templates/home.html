@@ -37,6 +37,12 @@
 <body>
 <h1>Book Library</h1>
 <h2 th:text="${user}"></h2>
+<div th:if="${publicationYearsValid}">
+    <p>✅ All publication years are valid!</p>
+</div>
+<div th:unless="${publicationYearsValid}">
+    <p>⚠️ Some books have invalid publication years!</p>
+</div>
 <table>
     <thead>
     <tr>

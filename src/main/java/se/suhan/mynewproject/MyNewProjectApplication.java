@@ -11,8 +11,6 @@ public class MyNewProjectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MyNewProjectApplication.class, args);
-        S3Logger logger = new S3Logger();
-        logger.logLogin("testUser", "test@example.com");
     }
 
 }

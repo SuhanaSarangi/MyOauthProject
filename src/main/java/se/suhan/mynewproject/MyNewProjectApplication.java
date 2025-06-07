@@ -3,6 +3,7 @@ package se.suhan.mynewproject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import se.suhan.mynewproject.logs.S3Logger;
 
 @SpringBootApplication
 @EnableWebSecurity
@@ -10,6 +11,8 @@ public class MyNewProjectApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MyNewProjectApplication.class, args);
+        S3Logger logger = new S3Logger();
+        logger.logLogin("testUser", "test@example.com");
     }
 
 }

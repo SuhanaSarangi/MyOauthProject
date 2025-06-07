@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import se.suhan.mynewproject.logs.S3Logger;
 import se.suhan.mynewproject.models.Book;
 import se.suhan.mynewproject.models.BookRepository;
 import se.suhan.mynewproject.services.BookService;
@@ -27,7 +28,6 @@ public class HomeController extends BaseController {
         model.addAttribute("books", books);
         model.addAttribute("user", "Suhana");
 
-        // Validate publication years
         boolean publicationYearsValid = bookService.isPublicationYearValid();
         model.addAttribute("publicationYearsValid", publicationYearsValid);
 
@@ -38,9 +38,21 @@ public class HomeController extends BaseController {
     public String profile(Model model) {
         System.out.println("Profile page accessed");
 
-        String user = getLoggedInEmail();
-        model.addAttribute("user", user);
+        String email = getLoggedInEmail();
+        String sub = getLoggedInSub();
 
-        return "profile";
+        model.addAttribute("user", email);
+
+        try {
+            if (email != null && sub != null) {
+                S3Logger logger = new S3Logger();
+                logger.logLogin(sub, email);
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to log login event to S3: " + e.getMessage());
+        }
+
+        model.addAttribute("message", "Welcome, " + email);
+        return "profile";  // Assuming profile.html exists
     }
 }
